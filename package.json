@@ -1,0 +1,12 @@
+{
+  "name": "livingston-rankin-site",
+  "version": "1.0.0",
+  "description": "Sitio web Agencia de Aduanas",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve . -l $PORT"
+  },
+  "dependencies": {
+    "serve": "^14.2.3"
+  }
+}

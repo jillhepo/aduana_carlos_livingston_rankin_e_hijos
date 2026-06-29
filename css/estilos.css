@@ -1,0 +1,855 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --padding-container: 100px 0;
+    --color-title: #001A49;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: var(--padding-container);
+}
+
+.hero {
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    max-height: 800px;
+    position: relative;
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    color: #fff;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url('../images/header.jpg');
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 95%, 0 80%);
+    z-index: -1;
+}
+
+
+/* Nav */
+
+.nav {
+    --padding-container: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav__title {
+    font-weight: 300;
+}
+
+.nav__link {
+    margin-left: auto;
+    padding: 0;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    gap: 2em;
+}
+
+.nav__items {
+    list-style: none;
+}
+
+.nav__links {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav__menu {
+    margin-left: auto;
+    cursor: pointer;
+    display: none;
+}
+
+.nav__img {
+    display: block;
+    width: 30px;
+}
+
+
+.nav__close {
+    display: var(--show, none);
+}
+
+
+/* Hero container */
+
+.hero__container {
+    max-width: 800px;
+    --padding-container: 0;
+    display: grid;
+    grid-auto-rows: max-content;
+    align-content: center;
+    gap: 1em;
+    padding-bottom: 100px;
+    text-align: center;
+}
+
+.hero__title {
+    font-size: 3rem;
+}
+
+.hero__paragraph {
+    margin-bottom: 20px;
+}
+
+.cta {
+    display: inline-block;
+    background-color: #fbc02d;
+    justify-self: center;
+    color: var(--color-title);
+    text-decoration: none;
+    padding: 13px 30px;
+    border-radius: 32px;
+}
+
+/* About */
+
+.about {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.subtitle {
+    color: var(--color-title);
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+
+
+.about__main {
+    padding-top: 40px;
+    display: flex;
+    flex-wrap: nowrap;        /* Mantiene las 3 tarjetas en una sola fila */
+    gap: 2em;                 /* Separación idéntica entre tarjetas */
+    justify-content: center;
+    align-items: stretch;     /* ¡CLAVE! Hace que todas tengan exactamente la misma altura */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilo base para cada tarjeta (Misión, Visión, Documentos) */
+.about__icons {
+    background-color: #e5e5f7; /* El color lila tenue que usamos antes */
+    border-radius: 10px;
+    padding: 35px 25px;
+    width: calc(33.33% - 1.33em); /* Reparte el espacio en 3 columnas perfectas */
+    min-width: 280px;         /* Evita que se aplasten en pantallas medianas */
+    display: flex;
+    flex-direction: column;   /* Permite ordenar el contenido verticalmente */
+    align-items: center;      /* Centra los textos y enlaces internamente */
+    box-sizing: border-box;
+}
+
+/* Títulos de las tarjetas */
+.about__title {
+    color: #1D293F;           /* Color oscuro e imponente para los títulos */
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Párrafos internos (Misión y Visión) */
+.about__paragrah {
+    color: #696871;           /* Gris sutil para una lectura cómoda */
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 400;
+    margin: 0;
+    text-align: center;
+}
+
+/* Enlaces de la tarjeta de Documentos */
+.about__icons a {
+    display: inline-block;
+    width: 80%;
+    margin: 10px 0;
+    padding: 14px 0;
+    background-color: #ffffff;
+    color: black;           /* Azul elegante para los links */
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+/* Efecto hover para los botones de documentos */
+.about__icons a:hover {
+    background-color: #fbc02d;
+    color: #ffffff;
+}
+
+/* Empujar los links de documentos para que compartan simetría si es necesario */
+.about__icons a:first-of-type {
+    margin-top: auto;        /* Si hay espacio vacío, empuja los links de forma estética */
+}
+
+/* ==========================================================================
+   Responsive Design (Para que no se rompa en celulares)
+   ========================================================================== */
+@media (max-width: 968px) {
+    .about__main {
+        flex-wrap: wrap;     /* En tablets o móviles cambian a diseño vertical */
+    }
+    
+    .about__icons {
+        width: 100%;         /* Ocupan todo el ancho disponible una debajo de otra */
+    }
+}
+
+/* Knowledge */
+
+.knowledge {
+    background-color: #e5e5f7;
+    background-image: radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    overflow: hidden;
+}
+
+.knowledge__container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    align-items: center;
+}
+
+.knowledge__picture{
+    max-width: 500px;
+}
+
+.knowledge__paragraph{
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.knowledge__img{
+    width: 100%;
+    display: block;
+}
+
+/* price */
+
+.price {
+    text-align: center;
+}
+
+.price__table {
+    padding-top: 60px;
+    display: flex;
+    flex-wrap: nowrap;       /* ¡CLAVE 1! Evita rotundamente que las tarjetas se bajen a otra fila */
+    gap: 1.5em;              /* Reducimos un poco el espacio para que respiren mejor en una sola fila */
+    justify-content: center; 
+    align-items: stretch;    /* Sigue manteniendo todas las alturas homogéneas */
+    width: 100%;
+    max-width: 1400px;       /* Ajusta este ancho máximo según el tamaño de tu contenedor global */
+    margin: 0 auto;
+    overflow-x: auto;        /* Si la pantalla es MUY pequeña (como un móvil), creará un scroll horizontal suave en lugar de romper el diseño */
+}
+
+.price__element {
+    background-color: #e5e5f7;
+    text-align: center;
+    border-radius: 10px;
+    
+    /* ¡CLAVE 2! Reparte el espacio equitativamente. 
+       Cada tarjeta ocupará el 25% del total disponible menos el espacio del gap */
+    width: calc(25% - 1.25em); 
+    min-width: 250px;        /* Evita que se aplasten demasiado en pantallas medianas */
+    
+    padding: 35px 20px;      /* Reducimos un poco el padding lateral para optimizar el espacio horizontal */
+    display: flex;
+    flex-direction: column;
+    
+    /* Variables de color */
+    --color-plan: #696871;
+    --color-price: #1D293F;
+    --bg-cta: #fff;
+    --color-cta: #5454D4;
+    --color-items: #696871;
+}
+
+/* El resto de tus estilos (.price__element--best, .price__name, etc.) se quedan exactamente igual */
+
+/* Tarjeta destacada (Exportación) mantiene su color pero comparte el tamaño */
+.price__element--best {
+    background-color: #fbc02d; /* Corregido el doble punto y coma */
+    
+    /* Variables de color para la destacada */
+    --color-plan: rgb(255 255 255 / 75%);
+    --color-price: #fff;
+    --bg-cta: #9F3919;
+    --color-cta: #FFF;
+    --color-items: #fff;
+}
+
+.price__name {
+    color: var(--color-plan);
+    margin-bottom: 15px;
+    font-weight: 600; /* Un poco más grueso para que resalte como título */
+    font-size: 2rem;  /* Ajustado para que se vea imponente como en tu imagen */
+}
+
+.price__price {
+    font-size: 2.5rem;
+    color: var(--color-price);
+}
+
+.price__items {
+    margin-top: 25px;
+    display: grid;
+    gap: 1em;
+    font-weight: 300;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: var(--color-items);
+}
+
+/* En caso de que uses el botón de llamado a la acción (CTA) al final */
+.price__cta {
+    display: block;
+    padding: 20px 0;
+    border-radius: 10px;
+    text-decoration: none;
+    background-color: var(--bg-cta);
+    font-weight: 600;
+    color: var(--color-cta);
+    box-shadow: 0 0 1px rgba(0, 0, 0, .5);
+    margin-top: auto; /* ¡CLAVE! Si una tarjeta tiene menos texto, empuja el botón siempre al fondo para que todos rimen abajo */
+}
+/* Testimony */
+
+/* ==========================================================================
+   Sección de Testimonios (Fondo directo y contenido centrado)
+   ========================================================================== */
+
+.testimony {
+    position: relative; 
+    overflow: hidden;
+    padding: 80px 0;    
+    background-color:  #e5e5f7;
+    text-align: center;
+}
+
+/* El contenedor mantiene las flechas a los extremos y el espacio central */
+.testimony__container {
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    gap: 1em;
+    align-items: center; /* Alinea las flechas y el bloque central verticalmente */
+    max-width: 1200px;  
+    margin: 0 auto;
+}
+
+/* Bloque de contenido centrado horizontal y verticalmente */
+.testimony__body {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    justify-content: center; /* Centra horizontalmente el texto y la tarjeta juntos */
+    align-items: center;     /* Centra verticalmente el texto respecto a la tarjeta */
+    gap: 3em;                /* Separación elegante entre el texto y la imagen */
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease-in-out; 
+    
+    width: 100%;
+    margin: 0 auto;          /* Asegura el centrado absoluto dentro de su columna */
+}
+
+.testimony__body--show {
+    pointer-events: unset;
+    opacity: 1;
+}
+
+/* Imagen de perfil (Conserva el tamaño y recorte original) */
+.testimony__img {
+    width: 250px;       
+    height: 250px;      
+    border-radius: 0%;   
+    object-fit: fill;    
+    object-position: 50% 30%; 
+}
+
+/* Centrado del bloque de texto */
+.testimony__texts {
+    max-width: 700px;
+    text-align: center; /* Hace que las líneas de texto se alineen al centro */
+}
+
+.testimony__course {
+    background-color: #fbc02d;
+    color: #fff;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 15px; /* Separa el tag del título principal */
+}
+
+.testimony__arrow {
+    width: 90%;
+    cursor: pointer;
+}
+
+/* Questions */
+
+.questions{
+    text-align: center;
+}
+
+.questions__container{
+    display: grid;
+    gap: 2em;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+/* ==========================================================================
+   Estilos para el Formulario de Contacto (Efecto Imagen 2)
+   ========================================================================== */
+
+
+
+.questions .container {
+    width: 100%;
+    max-width: 850px; /* Ancho ideal para emular la distribución horizontal */
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* 2. Tipografía (Títulos y párrafos) */
+.subtitle {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--color-title); 
+    text-transform: uppercase; /* Forzamos mayúsculas como en la imagen 2 */
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.questions__paragraph {
+    color: var(--color-subtitle); 
+    font-size: 0.95rem;
+    margin-bottom: 40px;
+}
+
+/* 3. Maquetación del Formulario con Flexbox */
+.contact-form {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Ponemos Nombre y Correo lado a lado */
+.form-row {
+    display: flex;
+    gap: 15px; /* Espaciado idéntico entre las dos columnas */
+    margin-bottom: 15px;
+}
+
+.form-row .col {
+    flex: 1; /* Hace que ambos campos compartan el espacio 50/50 */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* 4. Estilo de los Campos de Texto (Inputs y Textarea) */
+.form-control {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 1rem;
+    background-color: #ffffff;
+    border: 1px solid #d2d6dc;
+    border-radius: 4px; /* Bordes ligeramente suavizados */
+    color: #4a5568;
+    box-sizing: border-box; /* Evita que el padding rompa el ancho total */
+    transition: border-color 0.2s ease-in-out;
+}
+
+/* Estilo para los placeholders */
+.form-control::placeholder {
+    color: #a0aec0;
+}
+
+/* Efecto focus sutil al hacer clic */
+.form-control:focus {
+    outline: none;
+    border-color: #a0aec0;
+}
+
+/* Ajuste específico para el área del mensaje */
+textarea.form-control {
+    min-height: 160px;
+    resize: vertical; /* Permite estirar solo hacia abajo si el usuario quiere */
+}
+
+/* 5. El botón "Enviar" llamativo */
+.btn-block {
+    width: 100%;
+    display: block;
+}
+
+.btn-primary {
+    background-color: #fbc02d; /* El amarillo exacto de la imagen 2 */
+    color: #2d3748; /* Texto oscuro para un contraste legible */
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* Feedback visual al pasar el cursor */
+.btn-primary:hover {
+    background-color: #f9b115;
+}
+
+/* 6. Responsive (Aseguramos que en celulares se vea perfecto) */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column; /* En pantallas pequeñas, se apilan verticalmente */
+        gap: 15px;
+    }
+    
+    .subtitle {
+        font-size: 2rem;
+    }
+}
+/* Footer */
+.list {
+    list-style: none; /* ¡CLAVE! Elimina el puntito negro (•) */
+    padding: 0;       /* Quita el espacio interno por defecto del ul */
+    margin: 0;        /* Quita el margen por defecto del ul */
+}
+
+.list-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;        /* Agrega un espacio uniforme y limpio entre cada dato */
+}
+
+.list-body p {
+    margin: 0;
+    color: #cbd5e0;   /* Un gris claro/blanquecino para mejorar la legibilidad sobre el fondo oscuro */
+    font-size: 0.95rem;
+    line-height: 1.5;
+    display: flex;
+    align-items: center; /* Alinea los iconos perfectamente en el centro con el texto */
+}
+
+.list-body p i {
+    margin-right: 10px; /* Separa el icono del texto (Ubicación, Correo, Móvil) */
+    color: #2091F9;     /* Un toque azul brillante para que los iconos resalten */
+    font-size: 1.1rem;
+}
+
+.footer__newsletter {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px; /* Ajusta la separación con la lista de abajo */
+} 
+
+.footer{
+    background-color: #1D293F;
+}
+
+.footer__title{
+    font-weight: 300;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.footer__title, .footer__newsletter{
+    color: #fff;
+}
+
+
+.footer__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 60px;
+}
+
+.nav--footer{
+    padding-bottom: 20px;
+    display: grid;
+    gap: 1em;
+    grid-auto-flow: row;
+    height: 100%;
+}
+
+.nav__link--footer{
+    display: flex;
+    margin: 0;
+    margin-right: 20px;
+    flex-wrap: wrap;
+}
+
+.footer__inputs{
+    margin-top: 10px;
+    display: flex;
+    overflow: hidden;
+}
+
+.footer__input{
+    background-color: #fff;
+    height: 50px;
+    display: block;
+    padding-left: 10px;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    margin-right: 16px;
+}
+
+.footer__submit{
+    margin-left: auto;
+    display: inline-block;
+    height: 50px;
+    padding: 0 20px ;
+    background-color: #2091F9;
+    border: none;
+    font-size: 1rem;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.footer__copy{
+    --padding-container: 30px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.footer__copyright{
+    font-weight: 300;
+}
+
+.footer__icons{
+    margin-bottom: 10px;
+}
+
+.footer__img{
+    width: 30px;
+}
+
+/* Media queries */
+
+@media (max-width:800px){
+    .nav__menu{
+        display: block;
+    }
+
+    .nav__link--menu{
+        position: fixed;
+        background-color: #000;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        z-index: 100;
+        opacity: 0;
+        pointer-events: none;
+        transition: .7s opacity;
+    }
+
+    .nav__link--show{
+        --show: block;
+        opacity:1 ;
+        pointer-events: unset;
+    }
+
+    .nav__close{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 30px;
+        cursor: pointer;
+    }
+
+    .hero__title{
+        font-size: 2.5rem;
+    }
+
+
+    .about__main{
+        gap: 2em;
+    }
+
+    .about__icons:last-of-type{
+        grid-column: 1/-1;
+    }
+
+
+    .knowledge__container{
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content 1fr;
+        gap: 3em;
+        text-align: center;
+    }
+
+    .knowledge__picture{
+        grid-row: 1/2;
+        justify-self: center;
+    }
+
+    .testimony__container{
+        grid-template-columns: 30px 1fr 30px;
+    }
+
+    .testimony__body{
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content max-content;
+        gap: 3em;
+        justify-items:center ;
+    }
+
+
+    .testimony__img{
+        width: 200px;
+        height: 200px;
+        
+    }
+
+    .questions__copy{
+        width: 100%;
+    }
+
+    .footer__container{
+        flex-wrap: wrap;
+    }
+
+    .nav--footer{
+        width: 100%;
+        justify-items: center;
+    }
+
+    .nav__link--footer{
+        width: 100%;
+        justify-content: space-evenly;
+        margin: 0;
+    }
+
+    .footer__form{
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    .footer__input{
+        flex: 1;
+    }
+
+}
+
+@media (max-width:600px){
+    .hero__title{
+        font-size: 2rem;
+    }
+
+    .hero__paragraph{
+        font-size: 1rem;
+    }
+
+    .subtitle{
+        font-size: 1.8rem;
+    }
+
+    .price__element{
+        width: 90%;
+    }
+
+    .price__element--best{
+        width: 90%;
+        /* padding: 40px; */
+    }
+
+    .price__price{
+        font-size: 2rem;
+    }
+
+    .testimony{
+        --padding-container: 60px 0;
+    }
+
+    .testimony__container{
+        grid-template-columns: 28px 1fr 28px;
+        gap: .9em;
+    }
+
+    .testimony__arrow{
+        width: 100%;
+    }
+
+    .testimony__course{
+        margin-top: 15px;
+    }
+
+    .questions__title{
+        font-size: 1rem;
+    }
+
+    .footer__title{
+        justify-self: start;
+        margin-bottom: 15px;
+    }
+
+    .nav--footer{
+        padding-bottom: 60px;
+    }
+
+    .nav__link--footer{
+        justify-content: space-between;
+    }
+
+    .footer__inputs{
+        flex-wrap: wrap;
+    }
+
+    .footer__input{
+        flex-basis: 100%;
+        margin: 0;
+        margin-bottom: 16px;
+    }
+
+    .footer__submit{
+        margin-right: auto;
+        margin-left: 0;
+        
+
+        /* 
+        margin:0;
+        width: 100%;
+        */
+    }
+}
